@@ -11,14 +11,14 @@ namespace IRunes.App.Extensions
             return 
                 album.Tracks.Count==0?
                     "There are currently no tracks in this album.":
-                    string.Join("",album.Tracks.Select((track, index) => track.ToHtmlAll(index + 1)));
+                    string.Join(string.Empty,album.Tracks.Select((track, index) => track.ToHtmlAll(album.Id,index + 1)));
         }
         public static string ToHtmlAll(this Album album)
         {
-            return $"<div><a href=\"/Albums/Details?id{album.Id}\">{WebUtility.UrlDecode(album.Name)}</a></div>";
+            return $"<h3><a href=\"/Albums/Details?id{album.Id}\">{WebUtility.UrlDecode(album.Name)}</a></h3>";
         }
         public static string ToHtmlDetails(this Album album)
-        {
+        {       
             return "<div class=\"album-details\">" +
                    "    <div class=\"album-data\">"+
                    $"       <img src=\"{WebUtility.UrlDecode(album.Cover)}\""+
@@ -29,7 +29,7 @@ namespace IRunes.App.Extensions
                    $"  <div class=\"album-tracks\""+
                    "        <h1>Tracks</h1>"+
                    "        <hr style=\"height: 2px\" />"+
-                   $"        <a href=\"/Tracks/Create?albumId={album.Id}\">Create Track</a>\""+
+                   $"        <a href=\"/Tracks/Create?albumId={album.Id}\">Create Track</a>"+
                    "        <hr style=\"height: 2px\" />" +
                    "        <ul class=\"tracks-list\">"+
                    $"       {GetTracks(album)}"+
@@ -39,15 +39,19 @@ namespace IRunes.App.Extensions
                    "    </div>"
                    + "</div>";
         }
-        public static string ToHtmlAll(this Track track, int index)
+        public static string ToHtmlAll(this Track track, string albumId, int index)
         {
-            return $"<li><a href=\"/Tracks/Details?id={track.Id}\">{index}. {WebUtility.UrlDecode(track.Name)}</li>";
+            return $"<li><strong>{index}</strong>. <a href=\"/Tracks/Details?albumId={albumId}&trackId={track.Id}\">{WebUtility.UrlDecode(track.Name)}</li>";
 
         }
 
         public static string ToHtmlDetails(this Track track)
         {
-            return null;
+            return "<div>"
+                   +$"   <iframe src=\"{WebUtility.UrlDecode(track.Link)}\"> </iframe>"
+                   +$"    <h1>Track Name: {WebUtility.UrlDecode(track.Name)}</h1> " 
+                   +$"   <h1>Track Price: {track.Price:f2}</h1>" 
+                 + "</div>";
         }
 
     }

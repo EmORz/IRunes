@@ -1,10 +1,11 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using IRunes.App.Extensions;
+﻿using IRunes.App.Extensions;
 using IRunes.Data;
 using IRunes.Models;
+using Microsoft.EntityFrameworkCore;
 using SIS.HTTP.Requests.Contracts;
 using SIS.HTTP.Responses.Contracts;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace IRunes.App.Controllers
 {
@@ -78,7 +79,9 @@ namespace IRunes.App.Controllers
             var albumId = httpRequest.FormData["id"].ToString();
             using (var context = new RunesDbContext())
             {
-                var albumFromDB = context.Albums.SingleOrDefault(album => album.Id == albumId);
+                var albumFromDB = context.Albums
+                    .Include(album => album.Tracks)
+                    .SingleOrDefault(album => album.Id == albumId);
                 if (albumFromDB == null)
                 {
                     return Redirect("/Albums/All");
@@ -88,7 +91,6 @@ namespace IRunes.App.Controllers
                 return this.View(); 
 
             }
-            return this.View();
         }
 
     }

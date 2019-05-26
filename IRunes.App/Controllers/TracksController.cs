@@ -28,10 +28,10 @@ namespace IRunes.App.Controllers
 
         public IHttpResponse CreateConfirm(IHttpRequest httpRequest)
         {
-            //if (!this.IsLoggedIn(httpRequest))
-            //{
-            //    return this.Redirect("Users/Login");
-            //}
+            if (!this.IsLoggedIn(httpRequest))
+            {
+                return this.Redirect("Users/Login");
+            }
             var albumId = httpRequest.FormData["albumId"].ToString();
             using (var context = new RunesDbContext())
             {

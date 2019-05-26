@@ -4,42 +4,43 @@
 <head>
     <meta charset="utf-8" />
     <title>IRunes</title>
+    <link rel="stylesheet"href="/css/bootstrap.min.css"/>
 </head>
 <body>
-    <div>
+    <div class="container-fluid">
         <header>
-            <nav>
-                <a href="#">IRunes</a>
-                <button type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span></span>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-success text-white">
+                <a class="navbar-brand" href="#">IRunes</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
                 </button>
-                <div id="navbarNav">
-                    <ul>
-                        <li>
-                            <a href="/">Home</a>
+                <div  class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/">Home</a>
                         </li>
-                        <li>
-                            <a href="/Users/Login">Login</a>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/Users/Login">Login</a>
                         </li>
-                        <li>
-                            <a href="/Users/Register">Register</a>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/Users/Register">Register</a>
                         </li>
                     </ul>
                 </div>
             </nav>
         </header>
-        <hr style="height: 2px" />
+        <hr class="bg-success" style="height: 2px" />
         <main>
-            <div>
+            <div class="jumbotron bg-success text-white">
                 <h1>Welcome to IRunes</h1>
-                <hr style="height: 2px" />
-                <h2><a href="/Users/Login">Login</a> if you have an account.</h2>
-                <h2><a href="/Users/Register">Register</a> if you don't.</h2>
+                <hr class="bg-white" style="height: 2px" />
+                <h2><a class="text-warning" href="/Users/Login">Login</a> if you have an account.</h2>
+                <h2><a class="text-warning" href="/Users/Register">Register</a> if you don't.</h2>
             </div>
         </main>
-        <hr style="height: 2px" />
-        <footer>
-            <h5>CopyRight &copy; Sanity Design Studios. All rights reserved.</h5>
+        <hr class="bg-success" style="height: 2px" />
+        <footer >
+            <h5 class="font-weight-bold text-center">CopyRight &copy; Sanity Design Studios. All rights reserved.</h5>
         </footer>
     </div>
 </body>
