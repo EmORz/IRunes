@@ -10,10 +10,5 @@
 
         public string Email { get; set; }
 
-        /*•	Id – a string (GuID).
-           •	Username – a string.
-           •	Password – a string (encoded in the database).
-           •	Email – a string.
-           */
     }
 }

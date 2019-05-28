@@ -19,11 +19,6 @@ namespace IRunes.Models
 
         public List<Track> Tracks;
 
-        /*•	Id – a string (GuID).
-           •	Name – a string.
-           •	Cover – a string (a link to an image).
-           •	Price – a decimal (sum of all Tracks’ prices, reduced by 13%).
-           •	Tracks – a collection of Tracks.
-           */
+     
     }
 }

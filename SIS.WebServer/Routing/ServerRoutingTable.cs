@@ -4,9 +4,8 @@ using SIS.HTTP.Common;
 using SIS.HTTP.Enums;
 using SIS.HTTP.Requests.Contracts;
 using SIS.HTTP.Responses.Contracts;
-using SIS.WebServer.Routing.Contracts;
 
-namespace SIS.WebServer.Routing
+namespace SIS.MvcFramework.Routing
 {
     public class ServerRoutingTable : IServerRoutingTable
     {

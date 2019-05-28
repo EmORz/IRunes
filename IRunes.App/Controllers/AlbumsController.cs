@@ -6,10 +6,12 @@ using SIS.HTTP.Requests.Contracts;
 using SIS.HTTP.Responses.Contracts;
 using System.Collections.Generic;
 using System.Linq;
+using SIS.MvcFramework;
+using SIS.MvcFramework.Attributes;
 
 namespace IRunes.App.Controllers
 {
-    public class AlbumsController : BaseController
+    public class AlbumsController : Controller
     {
         public IHttpResponse All(IHttpRequest httpRequest)
         {
@@ -26,17 +28,16 @@ namespace IRunes.App.Controllers
                 }
                 else
                 {
-
                     this.ViewData["Albums"] =
-                        string.Join("<br />",
+                        string.Join(string.Empty,
                         allAlbums.Select(album => album.ToHtmlAll()).ToList());
                 }
-
             }
             return this.View();
 
         }
 
+        [HttpPost(ActionName = "Create")]
         public IHttpResponse Create(IHttpRequest httpRequest)
         {
             if (!this.IsLoggedIn(httpRequest))
@@ -76,12 +77,13 @@ namespace IRunes.App.Controllers
                 this.Redirect("/Users/Login");
             }
 
-            var albumId = httpRequest.FormData["id"].ToString();
+            var albumId = httpRequest.QueryData["id"].ToString();
             using (var context = new RunesDbContext())
             {
                 var albumFromDB = context.Albums
                     .Include(album => album.Tracks)
                     .SingleOrDefault(album => album.Id == albumId);
+
                 if (albumFromDB == null)
                 {
                     return Redirect("/Albums/All");

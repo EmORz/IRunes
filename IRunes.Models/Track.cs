@@ -10,10 +10,5 @@
 
         public decimal Price { get; set; }
 
-        /*•	Id – a string (GuID).
-           •	Name – a string.
-           •	Link – a string (a link to a video).
-           •	Price – a decimal.
-           */
     }
 }
