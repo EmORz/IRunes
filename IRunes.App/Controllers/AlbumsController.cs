@@ -37,7 +37,7 @@ namespace IRunes.App.Controllers
 
         }
 
-        [HttpPost(ActionName = "Create")]
+        //[HttpPost(ActionName = "Create")]
         public IHttpResponse Create(IHttpRequest httpRequest)
         {
             if (!this.IsLoggedIn(httpRequest))
@@ -46,6 +46,8 @@ namespace IRunes.App.Controllers
             }
             return this.View();
         }
+        [HttpPost(ActionName = "Create")]
+
         public IHttpResponse CreateConfirm(IHttpRequest httpRequest)
         {
             if (!this.IsLoggedIn(httpRequest))
