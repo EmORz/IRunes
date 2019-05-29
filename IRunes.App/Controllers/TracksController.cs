@@ -1,13 +1,12 @@
-﻿using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using IRunes.App.Extensions;
+﻿using IRunes.App.Extensions;
 using IRunes.Data;
 using IRunes.Models;
 using SIS.HTTP.Requests.Contracts;
 using SIS.HTTP.Responses.Contracts;
 using SIS.MvcFramework;
 using SIS.MvcFramework.Attributes;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace IRunes.App.Controllers
 {
@@ -20,7 +19,7 @@ namespace IRunes.App.Controllers
                 return this.Redirect("/Users/Login");
             }
 
-            var albumId = httpRequest.FormData["albumId"].ToString();
+            var albumId = httpRequest.QueryData["albumId"].ToString();
 
             this.ViewData["AlbumId"] = albumId;
 
@@ -34,7 +33,8 @@ namespace IRunes.App.Controllers
             {
                 return this.Redirect("/Users/Login");
             }
-            var albumId = httpRequest.FormData["albumId"].ToString();
+            var albumId = httpRequest.QueryData["albumId"].ToString();
+
             using (var context = new RunesDbContext())
             {
                 var albumFromDb = context.Albums.SingleOrDefault(album => album.Id == albumId);

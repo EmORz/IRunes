@@ -5,11 +5,17 @@
     <meta charset="utf-8" />
     <title>IRunes</title>
     <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <style>
+        .img-thumbnail {
+            width: 700px;
+            height: 480px;
+        }
+    </style>
 </head>
 <body>
 <div class="container-fluid">
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-success text-white">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-success">
             <a class="navbar-brand" href="#">IRunes</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -30,19 +36,13 @@
         </nav>
     </header>
     <hr class="bg-success" style="height: 2px" />
-
-        <main>
-            @Model.Album
-            <hr style="height: 2px" />
-            <div>
-                <a href="/Albums/Details?id={{{albumId}}}>Back To Album</a>
-            </div>
-        </main>
-
-        <hr class="bg-success" style="height: 2px" />
-        <footer>
-            <h5 class="font-weight-bold text-center">CopyRight &copy; Sanity Design Studios. All rights reserved.</h5>
-        </footer>
-    </div>
+    <main>
+        @Model.Album
+    </main>
+    <hr class="bg-success" style="height: 2px" />
+    <footer>
+        <h5 class="font-weight-bold text-center">CopyRight &copy; Sanity Design Studios. All rights reserved.</h5>
+    </footer>
+</div>
 </body>
 </html>

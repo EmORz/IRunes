@@ -47,6 +47,9 @@
     <None Update="Views\Tracks\Create.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Views\Tracks\Details.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Views\Users\Login.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
